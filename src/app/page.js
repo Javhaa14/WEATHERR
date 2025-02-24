@@ -1,11 +1,16 @@
 import Image from "next/image";
 import { Elipse } from "@/components/Elipse";
+import { Back } from "@/components/Back";
 export default function Home() {
   let arr = [];
   return (
     <div className="w-screen h-screen flex justify-center items-center relative">
-      <div className="flex bg-[#F3F4F6] w-[50%] h-screen rounded-[0px 50px 0px 0px] relative"></div>
-      <div className="flex bg-[#0F141E] w-[50%] h-screen rounded-[0px 50px 0px 0px] relative"></div>
+      <div className="flex bg-[#F3F4F6] w-[50%] h-screen rounded-[0px 50px 0px 0px] relative">
+        <Back />
+      </div>
+      <div className="flex bg-[#0F141E] w-[50%] h-screen rounded-[0px 50px 0px 0px] relative">
+        <Back />
+      </div>
       <Elipse className={"w-[340px] h-[340px] absolute"} opacity={"0.1"} />
       <Elipse className={"w-[540px] h-[540px] absolute"} opacity={"0.1"} />
       <Elipse className={"w-[940px] h-[940px] absolute"} opacity={"0.08"} />
