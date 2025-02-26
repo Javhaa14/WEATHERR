@@ -4,10 +4,15 @@ import { Back } from "@/components/Back";
 import { BG } from "@/components/BG";
 import { Temp } from "@/components/Temp";
 import { Icons } from "@/components/Icons";
+import { Input } from "@/components/Input";
 export default function Home() {
   let arr = [];
+
   return (
     <div className="w-screen h-screen flex justify-center items-center relative overflow-hidden">
+      <div className="flex w-screen h-screen absolute p-[40px]">
+        <Input></Input>
+      </div>
       <div className="flex justify-center items-center bg-[#F3F4F6] w-[50%] h-screen rounded-[0px 50px 0px 0px] relative">
         <img
           src="nar.png"
@@ -59,7 +64,7 @@ export default function Home() {
             focus={"focus:text-[#F9FAFB] text-[#4B5563]"}></Icons>
         </Back>
       </div>
-      <div className="w-[140px] h-[140px] bg-[#F3F4F6] rounded-full absolute z-50 flex justify-center items-center text-center">
+      <div className="w-[140px] h-[140px] bg-[#F3F4F6] rounded-full absolute z-20 flex justify-center items-center text-center">
         {
           <svg
             className="pr-[8px]"
