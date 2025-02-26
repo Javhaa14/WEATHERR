@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { Elipse } from "@/components/Elipse";
 import { Back } from "@/components/Back";
@@ -6,8 +7,48 @@ import { Temp } from "@/components/Temp";
 import { Icons } from "@/components/Icons";
 import { Input } from "@/components/Input";
 export default function Home() {
-  let arr = [];
-
+  let Citys = [
+    {
+      name: "Tokyo",
+      date: "September 10, 2025",
+      tempday: "7",
+      tempnight: "-1",
+      weatherday: "Clear",
+      weathernight: "Clear",
+    },
+    {
+      name: "Ulaanbaatar",
+      date: "September 10, 2025",
+      tempday: "-9",
+      tempnight: "-1",
+      weatherday: "Rainy",
+      weathernight: "Clear",
+    },
+    {
+      name: "New-York",
+      date: "September 10, 2025",
+      tempday: "10",
+      tempnight: "-1",
+      weatherday: "Clear",
+      weathernight: "Clear",
+    },
+    {
+      name: "Deli",
+      date: "September 10, 2025",
+      tempday: "7",
+      tempnight: "-1",
+      weatherday: "Clear",
+      weathernight: "Rainy",
+    },
+  ];
+  // const [inputvalue, setInputvalue] = useState("");
+  // const Uurchlugduhuyd = (event) => {
+  //   setInputvalue(event.target.value);
+  // };
+  // const findcity = Citys.find();
+  // function haih() {
+  //   for (i = 0; i < Citys.length; i++) {}
+  // }
   return (
     <div className="w-screen h-screen flex justify-center items-center relative overflow-hidden">
       <div className="flex w-screen h-screen absolute p-[40px]">
@@ -38,8 +79,10 @@ export default function Home() {
             focus={"focus:text-[#111827] text-[#D1D5DB]"}></Icons>
         </Back>
       </div>
-
-      <div className="flex justify-center items-center bg-[#0F141E] w-[50%] h-screen rounded-[0px 50px 0px 0px] relative">
+      <div className="flex flex-col gap-[118px] w-[50%] h-screen bg-[#F3F4F6] justify-center items-center relative">
+        <div className="flex  bg-[#0F141E]  w-[100%] h-[50%]  rounded-bl-[44px] relative"></div>
+        <div className="flex absolute w-[100%] ml-[70px] h-[140px] bg-[#0F141E] "></div>
+        <div className="flex  bg-[#0F141E] w-[100%] h-[50%]  rounded-tl-[44px] relative"></div>
         <img
           src="Sarr.png"
           className="absolute
@@ -91,7 +134,6 @@ export default function Home() {
             fill="#111111"
           />
         </svg>
-        ;
       </div>
       <Elipse className={"w-[340px] h-[340px] absolute opacity-[0.1]"} />
       <Elipse className={"w-[540px] h-[540px] absolute  opacity-[0.1]"} />

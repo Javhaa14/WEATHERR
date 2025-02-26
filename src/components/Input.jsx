@@ -1,6 +1,6 @@
 import { IoIosSearch } from "react-icons/io";
 
-export const Input = ({}) => {
+export const Input = ({ value, change }) => {
   return (
     <div className="flex w-fit py-[16px] px-[24px] items-center gap-4 rounded-[48px] bg-white shadow-lg absolute z-50">
       <svg
@@ -17,6 +17,8 @@ export const Input = ({}) => {
         </g>
       </svg>
       <input
+        value={value}
+        onChange={change}
         className=" min-w-[320px] w-[567px] text-[32px] font-[700] text-black focus-visible:outline-white color-black placeholder:opacity-[0.2]"
         type="text"
         placeholder="Search"></input>
