@@ -17,8 +17,9 @@ export const Input = ({}) => {
         </g>
       </svg>
       <input
-        className=" min-w-[320px] w-[567px] text-[32px] font-[700] text-black focus-visible:outline-white"
-        type="text"></input>
+        className=" min-w-[320px] w-[567px] text-[32px] font-[700] text-black focus-visible:outline-white color-black placeholder:opacity-[0.2]"
+        type="text"
+        placeholder="Search"></input>
     </div>
   );
 };
