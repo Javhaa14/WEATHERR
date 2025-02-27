@@ -2,7 +2,7 @@ import { IoIosSearch } from "react-icons/io";
 
 export const Input = ({ value, change }) => {
   return (
-    <div className="flex w-fit py-[16px] px-[24px] items-center gap-4 rounded-[48px] bg-white shadow-lg absolute z-50">
+    <div className="flex w-[567px] py-[16px] px-[24px] items-center gap-4 rounded-[48px] bg-white shadow-lg absolute z-50">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="48"

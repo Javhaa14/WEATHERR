@@ -6,53 +6,64 @@ import { BG } from "@/components/BG";
 import { Temp } from "@/components/Temp";
 import { Icons } from "@/components/Icons";
 import { Input } from "@/components/Input";
+import { useState } from "react";
+import { Dropdown } from "@/components/Dropdown";
 export default function Home() {
-  let Citys = [
+  let mockdata = [
     {
-      name: "Tokyo",
+      city: "Tokyo",
+      isDay: true,
       date: "September 10, 2025",
-      tempday: "7",
-      tempnight: "-1",
-      weatherday: "Clear",
-      weathernight: "Clear",
+      baidal: "Sunny",
+      temp: "24",
     },
     {
-      name: "Ulaanbaatar",
+      city: "Tokyo",
+      isDay: false,
       date: "September 10, 2025",
-      tempday: "-9",
-      tempnight: "-1",
-      weatherday: "Rainy",
-      weathernight: "Clear",
+      baidal: "Rainy",
+      temp: "-4",
     },
-    {
-      name: "New-York",
-      date: "September 10, 2025",
-      tempday: "10",
-      tempnight: "-1",
-      weatherday: "Clear",
-      weathernight: "Clear",
-    },
-    {
-      name: "Deli",
-      date: "September 10, 2025",
-      tempday: "7",
-      tempnight: "-1",
-      weatherday: "Clear",
-      weathernight: "Rainy",
-    },
+  ];
+  let toirogs = [
+    "size-[340px] absolute opacity-[0.1]",
+
+    "size-[540px] absolute  opacity-[0.1]",
+
+    "size-[940px] absolute opacity-[0.08]",
+
+    "size-[1340px] absolute opacity-[0.06]",
+
+    "size-[1740px] absolute opacity-[0.04]",
   ];
   // const [inputvalue, setInputvalue] = useState("");
   // const Uurchlugduhuyd = (event) => {
   //   setInputvalue(event.target.value);
+  //   console.log(event.target.value);
   // };
   // const findcity = Citys.find();
   // function haih() {
-  //   for (i = 0; i < Citys.length; i++) {}
+  //   for (i = 0; i < Citys.length; i++) {
+  //     if(Citys[i][0]==inputvalue){
+
+  //     }
+  //   }
   // }
+  // const [data, Setdata] = useState([]);
+  // const { City, date, temp, baidal, isDay } = data;
+  const [data, Setdata] = useState(
+    "https://api.weatherapi.com/v1/forecast.json?key=c54db69bc7dc4466bf415506241712&q="
+  );
+  const adata = fetch("").then((response) => {
+    Setdata(response.data);
+  });
+  console.log(data, "data");
   return (
     <div className="w-screen h-screen flex justify-center items-center relative overflow-hidden">
       <div className="flex w-screen h-screen absolute p-[40px]">
         <Input></Input>
+        <Dropdown></Dropdown>
+        {/* value={inputvalue} change={Uurchlugduhuyd} */}
       </div>
       <div className="flex justify-center items-center bg-[#F3F4F6] w-[50%] h-screen rounded-[0px 50px 0px 0px] relative">
         <img
@@ -64,18 +75,12 @@ export default function Home() {
 
         <Back className={"bg-[#FFFFFF]"}>
           <BG
+            mockdata={mockdata[0]}
             City={"Ulaanbaatar"}
-            date={"September 10, 2025"}
-            className={"text-[#111827]"}
-            src1={"icon.png"}
-            src2={"shadow.png"}></BG>
-          <Temp
-            className={"bg-linear-to-b from-[#111827] to-[#6B7280]"}
-            temp={"26"}
-            baidal={"Sunny"}
-            bo={"text-[#FF8E27]"}></Temp>
+            date={"September 10, 2025"}></BG>
+          <Temp mockdata={mockdata[0]} temp={"26"} baidal={"Sunny"}></Temp>
           <Icons
-            className={"text-[#D1D5DB]"}
+            mockdata={mockdata[0]}
             focus={"focus:text-[#111827] text-[#D1D5DB]"}></Icons>
         </Back>
       </div>
@@ -92,18 +97,12 @@ export default function Home() {
           "></img>
         <Back className={"bg-[#111827]"}>
           <BG
+            mockdata={mockdata[1]}
             City={"Ulaanbaatar"}
-            date={"September 10, 2025"}
-            className={"text-[#FFF]"}
-            src1={"sar.png"}
-            src2={"suuder.png"}></BG>
-          <Temp
-            className={"from-[#F9FAFB] to-[#575757]"}
-            temp={"-6"}
-            baidal={"Clear"}
-            bo={"text-[#777CCE]"}></Temp>
+            date={"September 10, 2025"}></BG>
+          <Temp mockdata={mockdata[1]} temp={"-6"} baidal={"Clear"}></Temp>
           <Icons
-            className={"text-[#4B5563]"}
+            mockdata={mockdata[1]}
             focus={"focus:text-[#F9FAFB] text-[#4B5563]"}></Icons>
         </Back>
       </div>
@@ -135,11 +134,9 @@ export default function Home() {
           />
         </svg>
       </div>
-      <Elipse className={"w-[340px] h-[340px] absolute opacity-[0.1]"} />
-      <Elipse className={"w-[540px] h-[540px] absolute  opacity-[0.1]"} />
-      <Elipse className={"w-[940px] h-[940px] absolute  opacity-[0.08]"} />
-      <Elipse className={"w-[1340px] h-[1340px] absolute  opacity-[0.06]"} />
-      <Elipse className={"w-[1740px] h-[1740px] absolute  opacity-[0.04]"} />
+      {toirogs.map((toirog) => {
+        return <Elipse className={toirog} key={toirog} />;
+      })}
     </div>
   );
 }
