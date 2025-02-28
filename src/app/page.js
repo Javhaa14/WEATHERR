@@ -6,8 +6,9 @@ import { BG } from "@/components/BG";
 import { Temp } from "@/components/Temp";
 import { Icons } from "@/components/Icons";
 import { Input } from "@/components/Input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dropdown } from "@/components/Dropdown";
+import axios from "axios";
 export default function Home() {
   let mockdata = [
     {
@@ -51,13 +52,17 @@ export default function Home() {
   // }
   // const [data, Setdata] = useState([]);
   // const { City, date, temp, baidal, isDay } = data;
-  const [data, Setdata] = useState(
-    "https://api.weatherapi.com/v1/forecast.json?key=c54db69bc7dc4466bf415506241712&q="
-  );
-  const adata = fetch("").then((response) => {
-    Setdata(response.data);
-  });
-  console.log(data, "data");
+  const [data, setData] = useState({});
+  const data1 = [];
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.weatherapi.com/v1/forecast.json?key=c54db69bc7dc4466bf415506241712&q=ulaanbaatar"
+      )
+      .then((res) => setData(res.data));
+  }, []);
+  console.log(data);
+
   return (
     <div className="w-screen h-screen flex justify-center items-center relative overflow-hidden">
       <div className="flex w-screen h-screen absolute p-[40px]">
